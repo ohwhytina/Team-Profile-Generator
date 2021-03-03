@@ -14,11 +14,11 @@ const displayInfo = team => {
 
 }
 
-const generateTeam = memberArr => {
+const generateTeam = teamArray => {
   return `
     <section class="my-3" id="portfolio">
       <div class="flex-row justify-space-between">
-      ${memberArr
+      ${teamArray
         .map(({ name, id, email, ...header }) => {
           return `
           <div class="member-card">

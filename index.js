@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-// const generatePage = require('./src/page-template');
+const generatePage = require('./src/page-template');
 
 // const Employee = require('./lib/Employee.js');
 // const Manager = require('./lib/Manager.js');
@@ -42,8 +42,8 @@ const promptQuestions = () => {
             }
           ])
           .then (function(mgrRole) {
-              var newMgr = new Manager(mgrRole.name, mgrRole.id, mgrRole.email, mgrRole.phone)
-              teamArray.push(newMgr);
+            //   var newMgr = new Manager(mgrRole.name, mgrRole.id, mgrRole.email, mgrRole.phone)
+            //   teamArray.push(newMgr);
               console.log(mgrRole)
               addMember();
           });
@@ -72,8 +72,8 @@ const promptQuestions = () => {
                 }
             ])
                 .then (function(engRole) {
-                    var newEng = new Engineer(engRole.name, engRole.id, engRole.email, engRole.git)
-                    teamArray.push(newEng);
+                    // var newEng = new Engineer(engRole.name, engRole.id, engRole.email, engRole.git)
+                    // teamArray.push(newEng);
                     console.log(engRole);
                     addMember();
                 });
@@ -102,8 +102,8 @@ const promptQuestions = () => {
                     },
                 ])
                 .then (function(intRole) {
-                    var newInt = new Intern(intRole.name, intRole.id, intRole.email, intRole.school)
-                    teamArray.push(newInt);
+                    // var newInt = new Intern(intRole.name, intRole.id, intRole.email, intRole.school)
+                    // teamArray.push(newInt);
                     console.log(intRole);
                     addMember();
                 });
