@@ -17,6 +17,8 @@ npm init, npm install inquirer, jest
 
 ## Usage
 Run "node index.js" in your project file and answer the prompt questions to generate your team profile. 
+[Video]("https://youtu.be/xcaLIOFllio")
+[Demo Gif]("")
 
 ## License
 
