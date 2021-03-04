@@ -30,7 +30,7 @@ const promptQuestions = () => {
         {
             type: 'input',
             name: 'id',
-            message: "Enter team memeber's id (if applicable):",
+            message: "Enter team member's id (if applicable):",
         },
         {
             type: 'input',
