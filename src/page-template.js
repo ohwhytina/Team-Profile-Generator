@@ -1,48 +1,53 @@
-const displayInfo = team => {
-  if (team.role === "Manager") {
-      console.log(employee.phone);
-      return `office number: ${employee.phone}`;
-  }
+const generateTeam = teamArray => {
 
-  if (team.title === "Engineer") {
-    return `gitHub: ${employee.git}`;
-  }
+  return `
+    <section class ="w3-card-4">
+    ${teamArray.manager
+      .map(({ name, id, email, phone }) => {
+      return `
+        <div class="w3-container w3-blue">
+        <h2>${name}</h2>
+        <h3>Manager</h3>
+        <p>ID: ${id}</p>
+        <p>Email: <a href="mailto:${email}">${email}</a></p>
+        <p>Office Number: ${phone}</p>
+        </div>
+        `;
+  })
+  .join('')}
 
-  if (team.title === "Intern") {
-      return `school: ${employee.school}`;
-  }
+    ${teamArray.engineer
+      .map(({ name, id, email, git }) => {
+      return `
+      <div class="card">
+      <h2>${name}</h2>
+      <h3>Engineer</h3>
+      <p>ID: ${id}</p>
+      <p>Email: <a href="mailto:${email}">${email}</a></p>
+      <p>Github: <a href="https://github.com/${git}>${git}</a></p>
+    </div>
+    `;
+  })
+  .join('')}
 
+  ${teamArray.intern
+  .map(({ name, id, email, school }) => {
+    return `
+    <div class="card">
+      <h2>${name}</h2>
+      <h3>Engineer</h3>
+      <p>ID: ${id}</p>
+      <p>Email: <a href="mailto:${email}">${email}</a></p>
+      <p>School: ${school}</p>
+      </div>
+    `
+  })
+  .join('')}
+  </section>
+`
 }
 
-const generateTeam = teamArray => {
-  return `
-    <section class="my-3" id="portfolio">
-      <div class="flex-row justify-space-between">
-      ${teamArray
-        .map(({ name, id, email, ...header }) => {
-          return `
-          <div class="member-card">
-            <div class="card-top">
-                <h2>${teamArray[i].name}</h2>
-                <h2>${teamArray[i].role}</h2>
-            </div>
-            <ul class="list-group list-group-flush text">
-            <li class="list-group-item">ID: ${teamArray[j].id}</li>
-            <li class="list-group-item">Email: ${teamArray[j].email}</li>
-            <li class="list-group-item"> ${displayInfo(teamArray[i])}</li>
-        </ul>
-        `
-        })
-        .join('')}
-      </div>
-    </section>
-  `;
-};
-
 module.exports = templateData => {
-console.log(templateData);
-
-const { employee } = templateData;
 
   return `
   <!DOCTYPE html>
@@ -51,10 +56,10 @@ const { employee } = templateData;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio Demo</title>
+    <title>Team Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
   <body>
     <header>
@@ -63,7 +68,7 @@ const { employee } = templateData;
       </div>
     </header>
     <main class="container my-5">
-      ${generateTeam(employee)}
+      ${generateTeam(templateData)}
     </main>
   </body>
   </html>
