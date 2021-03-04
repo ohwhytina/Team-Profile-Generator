@@ -89,21 +89,6 @@ const promptQuestions = () => {
                 return inquirer.prompt ([
                     {
                         type: 'input',
-                        name: 'name',
-                        message: "What is your Intern's name?",
-                    },
-                    {
-                        type: 'input',
-                        name: 'id',
-                        message: "What is your Intern's ID?",
-                    },
-                    {
-                        type: 'input',
-                        name: 'email',
-                        message: "What is your Intern's email?",
-                    },
-                    {
-                        type: 'input',
                         name: 'school',
                         message: "What is your Intern's school name?",
                     },
@@ -114,7 +99,7 @@ const promptQuestions = () => {
                         default: false
                     }
                 ])
-                .then (({name, id, email, school, additionalMem}) => {
+                .then (({school, additionalMem}) => {
                     intern.push(new Intern(name, id, email, school));
                     console.log(teamArray);
                     if (additionalMem) {
